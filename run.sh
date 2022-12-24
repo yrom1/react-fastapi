@@ -10,6 +10,3 @@ cd ..
 cd front
 nohup npm start &
 cd ..
-
-# ENJOY
-open http://127.0.0.1:3000
