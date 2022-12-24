@@ -1,3 +1,6 @@
+# CLEANUP
+sh kill.sh
+
 # BACKEND
 cd back
 nohup uvicorn main:app --reload &
