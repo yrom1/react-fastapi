@@ -1,0 +1,28 @@
+INFO:     Will watch for changes in these directories: ['/Users/ryan/react-fastapi/back']
+ERROR:    [Errno 48] Address already in use
+INFO:     Will watch for changes in these directories: ['/Users/ryan/react-fastapi/back']
+INFO:     Uvicorn running on http://127.0.0.1:8000 (Press CTRL+C to quit)
+INFO:     Started reloader process [31291] using StatReload
+INFO:     Started server process [31335]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     127.0.0.1:59974 - "GET / HTTP/1.1" 200 OK
+INFO:     Will watch for changes in these directories: ['/Users/ryan/react-fastapi/back']
+INFO:     Uvicorn running on http://127.0.0.1:8000 (Press CTRL+C to quit)
+INFO:     Started reloader process [31673] using StatReload
+INFO:     Started server process [31714]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     127.0.0.1:60037 - "GET / HTTP/1.1" 200 OK
+INFO:     Will watch for changes in these directories: ['/Users/ryan/react-fastapi/back']
+INFO:     Uvicorn running on http://127.0.0.1:8000 (Press CTRL+C to quit)
+INFO:     Started reloader process [31836] using StatReload
+INFO:     Started server process [31877]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Will watch for changes in these directories: ['/Users/ryan/react-fastapi/back']
+INFO:     Uvicorn running on http://127.0.0.1:8000 (Press CTRL+C to quit)
+INFO:     Started reloader process [31991] using StatReload
+INFO:     Started server process [32029]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
