@@ -1,13 +1,34 @@
-import React, { useState } from "react"
+import React from "react"
 
-import Hi from "./components/Hi"
+import Home from "./components/Home"
+import Dashboard from "./components/Dashboard"
+import Projects from "./components/Projects"
 
-const showHi = () => {
+const showHome = () => {
   if (window.location.pathname === "/") {
-    return <Hi />
+    return <Home />
   }
 }
 
+const showDashboard = () => {
+  if (window.location.pathname === "/dashboard") {
+    return <Dashboard />
+  }
+}
+
+const showProjects = () => {
+  if (window.location.pathname === "/projects") {
+    return <Projects />
+  }
+}
+
+
 export default () => {
-  return <div className="ui container">{showHi()}</div>
+  return (
+    <div className="ui container">
+      {showHome()}
+      {showDashboard()}
+      {showProjects()}
+    </div>
+  )
 }
