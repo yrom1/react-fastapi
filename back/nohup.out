@@ -26,3 +26,9 @@ INFO:     Started reloader process [31991] using StatReload
 INFO:     Started server process [32029]
 INFO:     Waiting for application startup.
 INFO:     Application startup complete.
+INFO:     Will watch for changes in these directories: ['/Users/ryan/react-fastapi/back']
+INFO:     Uvicorn running on http://127.0.0.1:8000 (Press CTRL+C to quit)
+INFO:     Started reloader process [38378] using StatReload
+INFO:     Started server process [38423]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
