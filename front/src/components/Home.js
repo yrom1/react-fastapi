@@ -1,7 +1,23 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 
 function Home() {
-    return <p>Home</p>;
+    const [data, setData] = useState(null);
+
+    useEffect(() => {
+        async function fetchData() {
+            const response = await fetch('http://localhost:8000/');
+            const json = await response.json();
+            setData(json);
+        }
+        fetchData();
+    }, []);
+
+    return (
+        <div>
+            <p>Home</p>
+            {data && <p>{JSON.stringify(data)}</p>}
+        </div>
+    );
 }
 
 export default Home;

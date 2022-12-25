@@ -22,7 +22,6 @@ const showProjects = () => {
   }
 }
 
-
 export default () => {
   return (
     <div className="ui container">
