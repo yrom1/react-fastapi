@@ -1,3 +1,5 @@
+from random import choice
+
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
@@ -22,3 +24,40 @@ app.add_middleware(
 @app.get("/")
 def root():
     return {"Hello": "World"}
+
+
+
+@app.get("/quote")
+def quote():
+    class RandomQuote:
+        def __init__(self):
+            self._quotes = [
+                # (quote, author, book)
+                (
+                    "With computers available, it is a waste to perform calculations by hand.",
+                    "Taiichi Ohno",
+                    "Toyota Production System Beyond Large-Scale Production",
+                ),
+                (
+                    "The numbers have no way of speaking for themselves. We speak for them. We imbue them with meaning.",
+                    "Nate Silver",
+                    "The Signal and the Noise",
+                ),
+            ]
+            for quote in self._quotes:
+                assert len(quote) == 3
+            self._index = choice(range(len(self._quotes)))
+
+        @property
+        def quote(self):
+            return self._quotes[self._index][0]
+
+        @property
+        def author(self):
+            return self._quotes[self._index][1]
+
+        @property
+        def book(self):
+            return self._quotes[self._index][2]
+    q = RandomQuote()
+    return '"' + q.quote + '"' + " — " + q.author + ", " + q.book
