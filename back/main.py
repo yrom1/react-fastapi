@@ -71,6 +71,7 @@ async def projects(name: str):
     url = f'https://api.github.com/repos/yrom1/{name}'
     response = requests.get(url)
     j = response.json()
+    print(j)
     return {
         "name": j['name'],
         "readme": highlight(requests.get(f"https://raw.githubusercontent.com/yrom1/{name}/main/README.md").text),
