@@ -1,24 +1,12 @@
-import React, { useState, useEffect } from 'react';
+// Project.js
+import React from 'react';
 
-function Project({ name }) {
-    const [project, setProject] = useState({});
-
-    useEffect(() => {
-        async function fetchData() {
-            const response = await fetch(`/projects/${name}`);
-            const data = await response.json();
-            setProject(data);
-        }
-        fetchData();
-    }, [name]);
-
-    return (
-        <div>
-            <h1>{project.name}</h1>
-            <p>{project.tagline}</p>
-            <div dangerouslySetInnerHTML={{ __html: project.readme }} />
-        </div>
-    );
-}
+const Project = ({ name, readme, tagline }) => (
+    <div>
+        <h2>{name}</h2>
+        <div dangerouslySetInnerHTML={{ __html: readme }} />
+        <p>{tagline}</p>
+    </div>
+);
 
 export default Project;
