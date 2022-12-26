@@ -1,4 +1,3 @@
-// Project.js
 import React from 'react';
 
 const Project = ({ name, readme, tagline }) => (

@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
+import Project from './Project';
 
 const Projects = () => {
     const [projects, setProjects] = useState([]);
+    const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
         const fetchProjects = async () => {
@@ -12,19 +14,20 @@ const Projects = () => {
             );
             const projectData = await Promise.all(promises);
             setProjects(projectData);
+            setIsLoading(false);
         }
         fetchProjects();
     }, []);
 
     return (
         <div>
-            {projects.map(project => (
-                <div key={project.name}>
-                    <h2>{project.name}</h2>
-                    <div dangerouslySetInnerHTML={{ __html: project.readme }} />
-                    <p>{project.tagline}</p>
-                </div>
-            ))}
+            {isLoading ? (
+                <div>Loading...</div>
+            ) : (
+                projects.map(project => (
+                    <Project key={project.name} {...project} />
+                ))
+            )}
         </div>
     );
 };
