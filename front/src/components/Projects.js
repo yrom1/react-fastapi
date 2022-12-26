@@ -4,10 +4,9 @@ import Project from './Project';
 const Projects = () => {
     const [projects, setProjects] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
-
+    const names = ['cloud-dictionary', 'mypandas', 'ty-command', 'exception-logging', 'postgrespy'];
     useEffect(() => {
         const fetchProjects = async () => {
-            const names = ['ty-command', 'mypandas'];
             const promises = names.map(name =>
                 fetch(`http://localhost:8000/projects/${name}`)
                     .then(response => response.json())
