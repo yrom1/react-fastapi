@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Project from './Project';
+import Tagline from './Tagline';
+import Loading from './Loading';
 
 const Projects = () => {
     const [projects, setProjects] = useState([]);
@@ -21,7 +23,15 @@ const Projects = () => {
     return (
         <div>
             {isLoading ? (
-                <div>Loading...</div>
+                <div><Loading /></div>
+            ) : (
+                projects.map(project => (
+                    <Tagline key={project.name} {...project} />
+                ))
+            )}
+            <hr></hr>
+            {isLoading ? (
+                <div><Loading /></div>
             ) : (
                 projects.map(project => (
                     <Project key={project.name} {...project} />
