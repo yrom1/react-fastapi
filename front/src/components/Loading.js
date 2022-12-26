@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import './Loading.css'
 
 const Loading = () => {
     // State to keep track of the current loading character
@@ -20,7 +21,7 @@ const Loading = () => {
     }, [currentChar]);
 
     return (
-        <div>
+        <div className='center-text'>
             {/* Display the current loading character */}
             <span>{loadingChars[currentChar]}</span>
         </div>

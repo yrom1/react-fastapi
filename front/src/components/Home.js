@@ -8,7 +8,7 @@ function Home() {
     }, []);
 
     return (
-        <div>
+        <div className="center-text">
             <p>Hello!</p>
             <p>My name is Ryan. I live in Toronto.</p>
             <div>
