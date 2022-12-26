@@ -4,6 +4,10 @@ function Home() {
     const [data, setData] = useState(null);
 
     useEffect(() => {
+        document.title = "Ryan | Home";
+    }, []);
+
+    useEffect(() => {
         async function fetchData() {
             const response = await fetch('http://localhost:8000/');
             const json = await response.json();
