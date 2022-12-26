@@ -9,7 +9,7 @@ function Home() {
 
     return (
         <div>
-            <p>Hi!</p>
+            <p>Hello!</p>
             <p>My name is Ryan. I live in Toronto.</p>
             <div>
                 <img src="/love-park.jpg" alt="Love Park" className="centered-image" />
