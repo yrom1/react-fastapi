@@ -1,0 +1,10 @@
+body {
+    text-align: center;
+}
+
+
+.centered-image {
+    width: 61.8%;
+    display: block;
+    margin: 0 auto;
+}
