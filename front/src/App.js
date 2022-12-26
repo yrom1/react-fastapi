@@ -4,6 +4,7 @@ import Home from "./components/Home"
 import Dashboard from "./components/Dashboard"
 import Projects from "./components/Projects"
 import Header from "./components/Header"
+import Footer from "./components/Footer"
 
 const showHome = () => {
   if (window.location.pathname === "/") {
@@ -30,6 +31,7 @@ export default () => {
       {showHome()}
       {showDashboard()}
       {showProjects()}
+      {Footer()}
     </div>
   )
 }
