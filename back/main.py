@@ -2,6 +2,7 @@ from random import choice
 
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.responses import PlainTextResponse
 
 app = FastAPI()
 
@@ -27,7 +28,7 @@ def root():
 
 
 
-@app.get("/quote")
+@app.get("/quote", response_class=PlainTextResponse)
 def quote():
     class RandomQuote:
         def __init__(self):
@@ -60,4 +61,4 @@ def quote():
         def book(self):
             return self._quotes[self._index][2]
     q = RandomQuote()
-    return '"' + q.quote + '"' + " — " + q.author + ", " + q.book
+    return '"' + q.quote + '"' + " — " + q.author + ', ' + q.book

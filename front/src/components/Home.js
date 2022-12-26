@@ -9,9 +9,9 @@ function Home() {
 
     useEffect(() => {
         async function fetchData() {
-            const response = await fetch('http://localhost:8000/');
-            const json = await response.json();
-            setData(json);
+            const response = await fetch('http://localhost:8000/quote');
+            const text = await response.text();
+            setData(text);
         }
         fetchData();
     }, []);
@@ -20,7 +20,7 @@ function Home() {
         <div>
             <p>Hi!</p>
             <p>My name is Ryan. I live in Toronto.</p>
-            {data && <p>{JSON.stringify(data)}</p>}
+            {data && <p>{data}</p>}
         </div>
     );
 }
