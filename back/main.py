@@ -1,8 +1,13 @@
-from random import choice
+import json
+from functools import cache
+from random import choice, random
+from subprocess import run
 
+import requests
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import PlainTextResponse
+from markdown_code_blocks import highlight
 
 app = FastAPI()
 
@@ -25,8 +30,6 @@ app.add_middleware(
 @app.get("/")
 def root():
     return {"Hello": "World"}
-
-
 
 @app.get("/quote", response_class=PlainTextResponse)
 def quote():
@@ -62,3 +65,37 @@ def quote():
             return self._quotes[self._index][2]
     q = RandomQuote()
     return '"' + q.quote + '"' + " — " + q.author + ', ' + q.book
+
+@app.get("/projects/{name}")
+async def projects(name: str):
+    url = f'https://api.github.com/repos/yrom1/{name}'
+    response = requests.get(url)
+    j = response.json()
+    return {
+        "name": j['name'],
+        "readme": highlight(requests.get(f"https://raw.githubusercontent.com/yrom1/{name}/main/README.md").text),
+        "tagline": j['description']
+    }
+
+
+# def projects():
+    # ans = ""
+    # for project in projects:
+    #     ans += (
+    #         f'<h3 style="text-align: left;"><a href="#{project}">'
+    #         + project
+    #         + "</a></h3>"
+    #         + f'<p>{projects[project]["tagline"]}</p>'
+    #     )
+    # ans += "<hr>"
+    # ans += "<hr>".join(
+    #     [
+    #         # a lil hacky to get hyperlinks to titles
+    #         # depends on first line of every readme being a title which can replace
+    #         f'<a href="#">⬆</a><h1 id="{project}">{project} — <a href="https://github.com/yrom1/{project}" target="_blank">source</a></h1>'
+    #         + "\n".join(
+    #             markdown_readme_to_html(projects[project]["readme"]).splitlines()[1:]
+    #         )
+    #         for project in projects
+    #     ]
+    # )
