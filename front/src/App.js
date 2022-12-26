@@ -3,6 +3,7 @@ import React from "react"
 import Home from "./components/Home"
 import Dashboard from "./components/Dashboard"
 import Projects from "./components/Projects"
+import Header from "./components/Header"
 
 const showHome = () => {
   if (window.location.pathname === "/") {
@@ -25,6 +26,7 @@ const showProjects = () => {
 export default () => {
   return (
     <div className="ui container">
+      {Header()}
       {showHome()}
       {showDashboard()}
       {showProjects()}
