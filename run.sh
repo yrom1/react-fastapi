@@ -1,3 +1,6 @@
+# SETUP
+source ~/PRIVATE/GH_PRIVATE.sh
+
 # CLEANUP
 sh kill.sh
 

@@ -1,4 +1,5 @@
 import json
+import os
 from functools import cache
 from random import choice, random
 from subprocess import run
@@ -66,10 +67,13 @@ def quote():
     q = RandomQuote()
     return '"' + q.quote + '"' + " — " + q.author + ', ' + q.book
 
+
 @app.get("/projects/{name}")
 async def projects(name: str):
+    token = os.environ['GH_TOKEN']
+    headers = {'Authorization': 'Bearer ' + token}
     url = f'https://api.github.com/repos/yrom1/{name}'
-    response = requests.get(url)
+    response = requests.get(url, headers=headers)
     j = response.json()
     print(j)
     return {
