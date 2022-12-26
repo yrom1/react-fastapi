@@ -18,7 +18,8 @@ function Home() {
 
     return (
         <div>
-            <p>Home</p>
+            <p>Hi!</p>
+            <p>My name is Ryan. I live in Toronto.</p>
             {data && <p>{JSON.stringify(data)}</p>}
         </div>
     );

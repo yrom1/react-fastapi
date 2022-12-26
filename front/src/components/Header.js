@@ -12,8 +12,8 @@ function Header() {
     return (
         <header>
             <a href="/" onClick={e => handleLinkClick(e, '/')}>Home</a>
-            <a href="/projects" onClick={e => handleLinkClick(e, '/projects')}>Projects</a>
             <a href="/dashboard" onClick={e => handleLinkClick(e, '/dashboard')}>Dashboard</a>
+            <a href="/projects" onClick={e => handleLinkClick(e, '/projects')}>Projects</a>
         </header>
     );
 }
