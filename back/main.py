@@ -20,5 +20,5 @@ app.add_middleware(
 )
 
 @app.get("/")
-def read_root():
+def root():
     return {"Hello": "World"}
