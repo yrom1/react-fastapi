@@ -100,22 +100,40 @@ def format_data(data: List[Tuple[datetime.date, float]]):
 
 @app.get("/plots/{name}")
 async def plots(name: str):# -> Dict[Tuple[datetime.date, float]]:
-    if name == 'strava':
+    WHERE = "where ft.date >= DATE_SUB(CURRENT_DATE, INTERVAL 14 DAY)"
+    if name == 'strava_runs':
         with StarSchema() as rds:
-            q = rds.query("""
+            q = rds.query(f"""
             select ft.date date
                 , ds.distance_km distance
             from fact_table ft
                 inner join dimension_strava ds
                     on ft.id_strava = ds.id
-            where ft.date >= DATE_SUB(CURRENT_DATE, INTERVAL 14 DAY)
+            {WHERE}
             """)
         return format_data(q)
-    # TODO
-    # if name == 'leetcode_new':
-    #     ...
-    # if name == 'leetcode_submissions':
-    #     ...
+    if name == 'leetcode_questions':
+        with StarSchema() as rds:
+            q = rds.query(f"""
+            select ft.date date
+                , dl.python3_problems + dl.mysql_problems
+            from fact_table ft
+                inner join dimension_leetcode dl
+                    on ft.id_leetcode = dl.id
+            {WHERE}
+            """)
+        return format_data(q)
+    if name == 'leetcode_submissions':
+        with StarSchema() as rds:
+            q = rds.query(f"""
+            select ft.date date
+                , dl.submissions
+            from fact_table ft
+                inner join dimension_leetcode dl
+                    on ft.id_leetcode = dl.id
+            {WHERE}
+            """)
+        return format_data(q)
 
 # def projects():
     # ans = ""
