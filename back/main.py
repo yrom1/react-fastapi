@@ -1,14 +1,22 @@
-import json
-import os
+import datetime
 from functools import cache
+from os import environ
 from random import choice, random
 from subprocess import run
+from typing import *  # type: ignore
 
+import pandas as pd
 import requests
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import PlainTextResponse
 from markdown_code_blocks import highlight
+from mysql.connector import connect
+from mysql.connector.connection import MySQLConnection
+
+from stardb import StarSchema
+
+_DEBUG = False
 
 app = FastAPI()
 
@@ -70,7 +78,7 @@ def quote():
 
 @app.get("/projects/{name}")
 async def projects(name: str):
-    token = os.environ['GH_TOKEN']
+    token = environ['GH_TOKEN']
     headers = {'Authorization': 'Bearer ' + token}
     url = f'https://api.github.com/repos/yrom1/{name}'
     response = requests.get(url, headers=headers)
@@ -82,6 +90,30 @@ async def projects(name: str):
         "tagline": j['description']
     }
 
+def format_data(data: List[Tuple[datetime.date, float]]):
+    return {
+        'x': [date for date, _ in data],
+        'y': [value for _, value in data],
+    }
+
+@app.get("/plots/{name}")
+async def plots(name: str) -> Dict[Tuple[datetime.date, float]]:
+    if name == 'strava':
+        with StarSchema() as rds:
+            q = rds.query("""
+            select ft.date date
+                , ds.distance_km distance
+            from fact_table ft
+                inner join dimension_strava ds
+                    on ft.id_strava = ds.id
+            where ft.date >= DATE_SUB(CURRENT_DATE, INTERVAL 14 DAY)
+            """)
+        return format_data(q)
+    # TODO
+    # if name == 'leetcode_new':
+    #     ...
+    # if name == 'leetcode_submissions':
+    #     ...
 
 # def projects():
     # ans = ""
