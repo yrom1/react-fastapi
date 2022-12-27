@@ -4,7 +4,7 @@ import createPlotlyComponent from 'react-plotly.js/factory';
 
 const Plot = createPlotlyComponent(Plotly);
 
-function BarChart({ plotName }) {
+function LineChart({ plotName }) {
     const [plotData, setPlotData] = useState([]);
 
     useEffect(() => {
@@ -14,7 +14,8 @@ function BarChart({ plotName }) {
             setPlotData([{
                 x: json.x,
                 y: json.y,
-                type: 'bar'
+                type: 'scatter',
+                mode: 'lines'
             }]);
         }
         fetchData();
@@ -23,11 +24,11 @@ function BarChart({ plotName }) {
     return (
         <Plot
             data={plotData}
-            // layout={{ title: 'Bar Chart' }}
+            // layout={{ title: 'Line Chart' }}
             config={{ displayModeBar: false }}
             style={{ width: '100%', height: '100%' }}
         />
     );
 }
 
-export default BarChart;
+export default LineChart;
