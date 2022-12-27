@@ -1,4 +1,5 @@
 # SETUP
+ln -s $(pwd)/star-schema/stardb.py $(pwd)/back/stardb.py
 source ~/PRIVATE/GH_PRIVATE.sh
 
 # CLEANUP

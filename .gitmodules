@@ -1,0 +1,3 @@
+[submodule "star-schema"]
+	path = star-schema
+	url = https://github.com/yrom1/star-schema
