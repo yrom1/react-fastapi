@@ -13,7 +13,6 @@ from fastapi.responses import PlainTextResponse
 from markdown_code_blocks import highlight
 from mysql.connector import connect
 from mysql.connector.connection import MySQLConnection
-
 from stardb import StarSchema
 
 _DEBUG = False
