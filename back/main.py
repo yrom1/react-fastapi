@@ -77,15 +77,12 @@ def quote():
 
 @app.get("/projects/{name}")
 async def projects(name: str):
-    print(name)
     assert name == 'mypandas'
     token = environ['GH_TOKEN']
     headers = {'Authorization': 'Bearer ' + token}
     url = f'https://api.github.com/repos/yrom1/{name}'
-    print(url)
     response = requests.get(url, headers=headers)
     j = response.json()
-    print(j)
     return {
         "name": j['name'],
         "readme": highlight(requests.get(f"https://raw.githubusercontent.com/yrom1/{name}/main/README.md").text),
