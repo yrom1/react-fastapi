@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Loading from './Loading';
 import BarChart from './BarChart';
+import LineChart from './LineChart';
 
 function Dashboard() {
     const [isLoading, setIsLoading] = useState(true);
@@ -29,9 +30,14 @@ function Dashboard() {
 
     return (
         <div>
-            {isLoading ? <Loading /> : <p>{quote}</p>}
-            <p>Dashboard</p>
+            <p>Personal Dashboard</p>
             <BarChart plotName="strava_runs" />
+            <div>Distance ran in kilometers vs date.</div>
+            <BarChart plotName="leetcode_submissions" />
+            <div>LeetCode submission vs date.</div>
+            <LineChart plotName="leetcode_questions" />
+            <div>Sum(Python, SQL) LeetCode questions done vs date.</div>
+            {isLoading ? <Loading /> : <p>{quote}</p>}
         </div>
     );
 }
