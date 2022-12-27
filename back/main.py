@@ -77,9 +77,12 @@ def quote():
 
 @app.get("/projects/{name}")
 async def projects(name: str):
+    print(name)
+    assert name == 'mypandas'
     token = environ['GH_TOKEN']
     headers = {'Authorization': 'Bearer ' + token}
     url = f'https://api.github.com/repos/yrom1/{name}'
+    print(url)
     response = requests.get(url, headers=headers)
     j = response.json()
     print(j)
@@ -96,7 +99,7 @@ def format_data(data: List[Tuple[datetime.date, float]]):
     }
 
 @app.get("/plots/{name}")
-async def plots(name: str) -> Dict[Tuple[datetime.date, float]]:
+async def plots(name: str):# -> Dict[Tuple[datetime.date, float]]:
     if name == 'strava':
         with StarSchema() as rds:
             q = rds.query("""
