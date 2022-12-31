@@ -5,9 +5,4 @@ most to least important todos:
   - [ ] can we have a loading symbols for the projects one at a time? somethings off about the formatting
 - [ ] light and dark themes but please dont make a mess of it like in flask-dashboard
 - [x] Need to authenticate github api requests:
-
-```
-{'message': "API rate limit exceeded for 174.93.15.204. (But here's the good news: Authenticated requests get a higher rate limit. Check out the documentation for more details.)", 'documentation_url': 'https://docs.github.com/rest/overview/resources-in-the-rest-api#rate-limiting'}
-INFO:     127.0.0.1:53129 - "GET /projects/ty-command HTTP/1.1" 500 Internal Server Error
-ERROR:    Exception in ASGI application
-```
+- [ ] okay im not sure if there's a bug but: if you do `sh run.sh` click some header links, walk away and tab out, the next time you click a tab the page component doesn't update... does fastapi or react have some timeout thing in non production mode? it only happens sometimes
