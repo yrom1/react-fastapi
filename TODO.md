@@ -1,3 +1,8 @@
+inspo https://tobymao.com/
+
+most to least important todos:
+- [ ] site looks like garbage how did i make flask-dashboard look so good? copy all the css, this will be painful
+  - [ ] can we have a loading symbols for the projects one at a time? somethings off about the formatting
 - [x] Need to authenticate github api requests:
 
 ```
