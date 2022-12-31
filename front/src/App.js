@@ -1,37 +1,48 @@
-import React from "react"
+import React, { useEffect, useState } from 'react';
 
 import Home from "./components/Home"
 import Dashboard from "./components/Dashboard"
 import Projects from "./components/Projects"
-import Header from "./components/Header"
 import Footer from "./components/Footer"
 
-const showHome = () => {
-  if (window.location.pathname === "/") {
-    return <Home />
-  }
-}
+const App = () => {
+  const [page, setPage] = useState(window.location.pathname);
+  const [currentComponent, setCurrentComponent] = useState(null);
 
-const showDashboard = () => {
-  if (window.location.pathname === "/dashboard") {
-    return <Dashboard />
+  const handleLinkClick = (e, path) => {
+    e.preventDefault();
+    window.history.pushState({}, '', path);
+    setCurrentComponent(null);
   }
-}
 
-const showProjects = () => {
-  if (window.location.pathname === "/projects") {
-    return <Projects />
-  }
-}
+  useEffect(() => {
+    console.log(2)
+    switch (window.location.pathname) {
+      case '/':
+        setCurrentComponent(<Home />);
+        break;
+      case '/dashboard':
+        setCurrentComponent(<Dashboard />);
+        break;
+      case '/projects':
+        setCurrentComponent(<Projects />);
+        break;
+      default:
+        setCurrentComponent(null);
+    }
+  }, [window.location.pathname]);
 
-export default () => {
   return (
-    <div className="ui container">
-      {Header()}
-      {showHome()}
-      {showDashboard()}
-      {showProjects()}
-      {Footer()}
+    <div className="App">
+      <header>
+        <h3><a href="/" onClick={e => handleLinkClick(e, '/')}>Home</a></h3>
+        <h3><a href="/dashboard" onClick={e => handleLinkClick(e, '/dashboard')}>Dashboard</a></h3>
+        <h3><a href="/projects" onClick={e => handleLinkClick(e, '/projects')}>Projects</a></h3>
+      </header>
+      {currentComponent}
+      <Footer />
     </div>
-  )
-}
+  );
+};
+
+export default App;

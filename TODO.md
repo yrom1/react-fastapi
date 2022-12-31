@@ -3,6 +3,7 @@ inspo https://tobymao.com/
 most to least important todos:
 - [ ] site looks like garbage how did i make flask-dashboard look so good? copy all the css, this will be painful
   - [ ] can we have a loading symbols for the projects one at a time? somethings off about the formatting
+- [ ] light and dark themes but please dont make a mess of it like in flask-dashboard
 - [x] Need to authenticate github api requests:
 
 ```
