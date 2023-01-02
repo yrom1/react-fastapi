@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 
-import Home from "./components/Home"
 import Dashboard from "./components/Dashboard"
 import Projects from "./components/Projects"
 import Footer from "./components/Footer"
@@ -8,13 +7,15 @@ import Footer from "./components/Footer"
 import './App.css';
 
 const App = () => {
-  const [page, setPage] = useState(window.location.pathname);
-  const [currentComponent, setCurrentComponent] = useState(null);
-
   // const [theme, setTheme] = useState('light');
   const [theme, setTheme] = useState(
-    localStorage.getItem('theme') || 'light'
+    // localStorage.getItem('theme') || 'light'
+    // TODO do set the theme based on:
+    //      I don't think this updatess when you change the thing?
+    //      maybe need to useEffect this matchMedia?
+    (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) ? 'dark' : 'light'
   );
+
   useEffect(() => {
     localStorage.setItem('theme', theme);
     document.body.className = theme;
@@ -27,37 +28,12 @@ const App = () => {
       setTheme('light');
     }
   };
-  const handleLinkClick = (e, path) => {
-    e.preventDefault();
-    window.history.pushState({}, '', path);
-    setCurrentComponent(null);
-  }
-
-  useEffect(() => {
-    switch (window.location.pathname) {
-      case '/':
-        setCurrentComponent(<Home />);
-        break;
-      case '/dashboard':
-        setCurrentComponent(<Dashboard />);
-        break;
-      case '/projects':
-        setCurrentComponent(<Projects />);
-        break;
-      default:
-        setCurrentComponent(null);
-    }
-  }, [window.location.pathname]);
 
   return (
     <div className={`App ${theme}`}>
-      <header>
-        <h3><a href="/" onClick={e => handleLinkClick(e, '/')}>Home</a></h3>
-        <h3><a href="/dashboard" onClick={e => handleLinkClick(e, '/dashboard')}>Dashboard</a></h3>
-        <h3><a href="/projects" onClick={e => handleLinkClick(e, '/projects')}>Projects</a></h3>
-        <button onClick={toggleTheme}>Toggle Theme</button>
-      </header>
-      {currentComponent}
+      {/* TODO what's an attractive way to arrange these? */}
+      <Dashboard />
+      <Projects />
       <Footer />
     </div>
   );
