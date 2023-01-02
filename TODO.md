@@ -1,5 +1,12 @@
 # most to least important todos:
 - [ ] convert to single page layout
-- [ ] CSS from flask-dashboard
+  - [x] components on one page
+  - [ ] layout
+  - [ ] prettier CSS
+- [ ] fix plots
+  - [ ] plotly bar line chart axis titles
+  - [ ] make plots use .css variable color so it gets all the theme stuff
+  - [ ] does using generic components make sense? maybe each plot should be individual component (code reuse for plots makes things usually)
 - [ ] light and dark themes
+  - [x] page based on system theme
 - [x] Need to authenticate github api requests:
