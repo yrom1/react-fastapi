@@ -9,17 +9,6 @@ function Dashboard() {
         document.title = "Ryan | Dashboard";
     }, []);
 
-    const [quote, setData] = useState(null);
-    useEffect(() => {
-        async function fetchData() {
-            const response = await fetch('http://localhost:8000/quote');
-            const text = await response.text();
-            setData(text);
-            setIsLoading(false);
-        }
-        fetchData();
-    }, []);
-
     // TODO this is the dynamic part you'll need to replace in javacsript
     // this is probably a job for a fast api endpoint
     // maybe the /kpi/{name} endpoint??
@@ -37,7 +26,6 @@ function Dashboard() {
             <div>LeetCode submission vs date.</div>
             <LineChart plotName="leetcode_questions" />
             <div>Sum(Python, SQL) LeetCode questions done vs date.</div>
-            {isLoading ? <Loading /> : <p>{quote}</p>}
         </div>
     );
 }
