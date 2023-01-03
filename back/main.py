@@ -72,6 +72,7 @@ def quote():
         def book(self):
             return self._quotes[self._index][2]
     q = RandomQuote()
+    # TODO I'd prefer to return JSON with these attributes so I can style the parts differently!
     return '"' + q.quote + '"' + " — " + q.author + ', ' + q.book
 
 

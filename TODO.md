@@ -7,6 +7,7 @@
   - [ ] plotly bar line chart axis titles
   - [ ] make plots use .css variable color so it gets all the theme stuff
   - [ ] does using generic components make sense? maybe each plot should be individual component (code reuse for plots makes things usually)
+- [ ] make quote api return json of parts rather than string
 - [ ] light and dark themes
   - [x] page based on system theme
 - [x] Need to authenticate github api requests:
