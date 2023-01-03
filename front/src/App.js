@@ -5,10 +5,11 @@ import Projects from "./components/Projects"
 import Footer from "./components/Footer"
 import Quote from "./components/Quote"
 import Theme from "./components/Theme"
+import Hi from "./components/Hi"
 
 import './App.css';
 
-const components = [Theme, Dashboard, Projects, Footer, Quote];
+const components = [Hi, Theme, Dashboard, Projects, Footer, Quote];
 
 const App = () => {
   return (

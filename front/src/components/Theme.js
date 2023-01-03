@@ -27,8 +27,12 @@ function Theme() {
     // };
     return (
         <div>
-            <h1>theme</h1>
-            <body>The operating system's theme is: {theme}.</body>
+            <body>
+                <h1>
+                    theme
+                </h1>
+                The operating system's theme is: {theme}.
+            </body>
         </div>
     );
 
