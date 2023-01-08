@@ -7,6 +7,9 @@
   - [ ] plotly bar line chart axis titles
   - [ ] make plots use .css variable color so it gets all the theme stuff
   - [ ] does using generic components make sense? maybe each plot should be individual component (code reuse for plots makes things usually)
+- [ ] deploy. deploy not using python anywhere it's annoying can aws do this?
+  - [ ] make all the http https redirect work
+  - [ ] make the no www to www redirect work
 - [ ] make quote api return json of parts rather than string
 - [ ] light and dark themes
   - [x] page based on system theme
