@@ -10,3 +10,10 @@ Something I've been thinking about. You see how this is one page: https://tobyma
 
 ## 2022-01-08
 http://rymo.xyz/
+
+## 2022-01-09
+It's live, just felt like doing it. It's on EC2 with an elastic ip that I set up like this on google domains: https://stackoverflow.com/questions/32467541/link-a-google-domain-to-amazon-ec2-server. Here's how I used nginx to listen on port 80 to redirect to port 3000 react:
+
+![](nginx.png)
+
+I only had to change the server_name and proxy_pass. None of the backend is set up yet.
