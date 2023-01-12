@@ -17,3 +17,16 @@ It's live, just felt like doing it. It's on EC2 with an elastic ip that I set up
 ![](nginx.png)
 
 I only had to change the server_name and proxy_pass. None of the backend is set up yet.
+
+## 2022-01-12
+Tried to get the backend going, it's almost going.
+
+```
+[ec2-user@...]$ curl localhost:8000
+{"Hello":"World"}
+[ec2-user@...]$ curl localhost:8000/quote
+"The numbers have no way of speaking for themselves. We speak for them. We imbue them with meaning." — Nate Silver, The Signal and the Noise
+[ec2-user@...]$
+```
+
+I had to do some backwards compatibility stuff for [stardb](https://github.com/yrom1/star-schema/commit/15dc3f493cd2bb3e945f519c6bbf1c54f7e759a9), to get it to run on the ancient version of Python Amazon Linux 2 uses. Try upgrading to AL2022. I tried but was having some problems. None of the secrets or anything I care about is on the EC2 instance yet, by the way, so only the hello world and quote api work. Which is why I only re-added the Quote component to the React site. It won't load the quote on the website, I think it's a security group thing about maybe localhost not being allowed to talk to itself unless I say it's okay...
