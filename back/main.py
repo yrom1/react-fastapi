@@ -1,11 +1,9 @@
 import datetime
-from functools import cache
 from os import environ
 from random import choice, random
 from subprocess import run
 from typing import *  # type: ignore
 
-import pandas as pd
 import requests
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
