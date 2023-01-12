@@ -1,3 +1,6 @@
+ssh.sh
+*.pem
+
 *nohup*
 back/stardb.py
 
