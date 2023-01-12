@@ -9,7 +9,7 @@ import Hi from "./components/Hi"
 
 import './App.css';
 
-const components = [Hi, Theme];
+const components = [Hi, Theme, Quote];
 // const components = [Hi, Theme, Dashboard, Projects, Footer, Quote];
 
 const App = () => {
