@@ -7,7 +7,7 @@ function Dashboard() {
 
     useEffect(() => {
         async function fetchData() {
-            const response = await fetch('http://localhost:8000/quote', {
+            const response = await fetch('http://rymo.xyz:8000/quote', {
                 headers: {
                     'Access-Control-Allow-Origin': '*',
                     'Access-Control-Allow-Credentials': true
