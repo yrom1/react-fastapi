@@ -25,6 +25,11 @@ origins = [
     "localhost:3000",
     "http://localhost:8000",
     "localhost:8000",
+    "http://www.rymo.xyz",
+    "https://www.rymo.xyz",
+    "http://rymo.xyz",
+    "https://rymo.xyz",
+    "rymo.xyz",
 ]
 
 app.add_middleware(
