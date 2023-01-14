@@ -3,6 +3,7 @@
   - [x] components on one page
   - [ ] layout
   - [ ] prettier CSS
+    - [ ] dont use body divs react doesnt like it
 - [ ] fix plots
   - [ ] plotly bar line chart axis titles
   - [ ] make plots use .css variable color so it gets all the theme stuff
