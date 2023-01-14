@@ -30,6 +30,11 @@ origins = [
     "http://rymo.xyz",
     "https://rymo.xyz",
     "rymo.xyz",
+    "http://www.rymo.xyz:3000",
+    "https://www.rymo.xyz:3000",
+    "http://rymo.xyz:3000",
+    "https://rymo.xyz:3000",
+    "rymo.xyz:3000",
 ]
 
 app.add_middleware(
