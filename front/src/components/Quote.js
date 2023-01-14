@@ -7,17 +7,10 @@ function Dashboard() {
 
     useEffect(() => {
         async function fetchData() {
-            const response = await fetch('http://localhost:8080/quote', {
-                mode: 'no-cors',
-                method: "post",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify(ob)
-            })
-            // fetch('http://localhost:8000/quote');
-            const text = await response.text();
-            setData(text);
+            const response = await fetch('http://localhost:8000')//, { mode: 'no-cors' })
+            const json = await response.json();
+            const data = json.Hello;
+            setData(data)
             setIsLoading(false);
         }
         fetchData();
