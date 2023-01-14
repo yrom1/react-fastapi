@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import Loading from './Loading';
 
+import './Quote.css'
+
 function Dashboard() {
     const [isLoading, setIsLoading] = useState(true);
     const [quote, setData] = useState(null);
@@ -14,7 +16,7 @@ function Dashboard() {
                 }
             })
             const json = await response.json();
-            const data = json.quote;
+            const data = json;
             setData(data)
             setIsLoading(false);
         }
@@ -23,7 +25,10 @@ function Dashboard() {
 
     return (
         <div>
-            {isLoading ? <Loading /> : <p>{quote}</p>}
+            {isLoading ? <Loading /> :
+                <p>
+                    <blockquote><p>{quote.quote}</p></blockquote><figcaption>—{quote.author}, <cite class="cite">{quote.book}</cite></figcaption>
+                </p>}
         </div>
     );
 }
