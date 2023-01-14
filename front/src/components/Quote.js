@@ -26,9 +26,20 @@ function Dashboard() {
     return (
         <div>
             {isLoading ? <Loading /> :
-                <p>
-                    <blockquote><p>{quote.quote}</p></blockquote><figcaption>—{quote.author}, <cite class="cite">{quote.book}</cite></figcaption>
-                </p>}
+                <div>
+                    <body>
+                        <h1>
+                            quote
+                        </h1>
+                        <p>
+                            {quote.quote}
+                        </p>
+                        <p>
+                            <figcaption>—{quote.author}, {quote.book}</figcaption>
+                        </p>
+                    </body>
+                </div>
+            }
         </div>
     );
 }
