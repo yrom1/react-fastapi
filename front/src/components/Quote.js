@@ -7,7 +7,11 @@ function Dashboard() {
 
     useEffect(() => {
         async function fetchData() {
-            const response = await fetch('http://localhost:8000/quote')
+            const response = await fetch('http://localhost:8000/quote', {
+                headers: {
+                    'Access-Control-Allow-Origin': '*'
+                }
+            })
             const json = await response.json();
             const data = json.quote;
             setData(data)
