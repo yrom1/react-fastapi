@@ -7,9 +7,9 @@ function Dashboard() {
 
     useEffect(() => {
         async function fetchData() {
-            const response = await fetch('http://localhost:8000')//, { mode: 'no-cors' })
+            const response = await fetch('http://localhost:8000/quote')
             const json = await response.json();
-            const data = json.Hello;
+            const data = json.quote;
             setData(data)
             setIsLoading(false);
         }
