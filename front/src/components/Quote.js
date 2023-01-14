@@ -9,7 +9,8 @@ function Dashboard() {
         async function fetchData() {
             const response = await fetch('http://localhost:8000/quote', {
                 headers: {
-                    'Access-Control-Allow-Origin': '*'
+                    'Access-Control-Allow-Origin': '*',
+                    'Access-Control-Allow-Credentials': true
                 }
             })
             const json = await response.json();
