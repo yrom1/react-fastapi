@@ -17,29 +17,9 @@ _DEBUG = False
 
 app = FastAPI()
 
-# mostly copying bits from
-# https://testdriven.io/blog/fastapi-react/
-# Im guessing this is 3000 because it's React's default ¯\_(ツ)_/¯
-origins = [
-    "http://localhost:3000",
-    "localhost:3000",
-    "http://localhost:8000",
-    "localhost:8000",
-    "http://www.rymo.xyz",
-    "https://www.rymo.xyz",
-    "http://rymo.xyz",
-    "https://rymo.xyz",
-    "rymo.xyz",
-    "http://www.rymo.xyz:3000",
-    "https://www.rymo.xyz:3000",
-    "http://rymo.xyz:3000",
-    "https://rymo.xyz:3000",
-    "rymo.xyz:3000",
-]
-
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=origins,
+    allow_origins=["*"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
