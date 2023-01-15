@@ -3,7 +3,7 @@ import Loading from './Loading';
 
 import './Quote.css'
 
-function Dashboard() {
+function Quote() {
     const [isLoading, setIsLoading] = useState(true);
     const [quote, setData] = useState(null);
 
@@ -44,4 +44,4 @@ function Dashboard() {
     );
 }
 
-export default Dashboard;
+export default Quote;
