@@ -47,3 +47,9 @@ index 26972d4..fef7659 100644
 -            const response = await fetch('http://localhost:8000/quote', {
 +            const response = await fetch('http://rymo.xyz:8000/quote', {
 ```
+
+## 2022-01-16
+
+![](plot.png)
+
+Behold, a plot. Recharts, https://recharts.org/en-US/examples. Pretty good, it auto does the theme light/dark stuff, which is extremely fantastic, I really didn't want to mess with a bunch of internal chart api details to get something that basic to work again.
