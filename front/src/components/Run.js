@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Loading from './Loading';
+import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 
 const Run = () => {
     const [isLoading, setIsLoading] = useState(true);
@@ -9,8 +10,15 @@ const Run = () => {
     useEffect(() => {
         async function fetchData() {
             const response = await fetch(endpoint)
-            const json = await response.json();
-            const data = json;
+            var j = await response.json();
+            var data = []
+            for (let i = 0; i < j.x.length; i++) {
+                console.log(j.x[i], j.y[i]);
+                data.push([{ x: j.x[i], y: j.y[i] }])
+            }
+            data = j.x.map((x, index) => ({ x, y: j.y[index] }))
+            console.log(42, data)
+            // console.log(data)
             setData(data)
             setIsLoading(false);
         }
@@ -18,9 +26,20 @@ const Run = () => {
     }, []);
 
     return <div>
-        {isLoading ? <Loading /> : <div>{data.x}</div>}
+        <LineChart
+            width={400}
+            height={400}
+            data={data}
+            margin={{ top: 5, right: 20, left: 10, bottom: 5 }}
+        >
+            <XAxis dataKey="x" />
+            <YAxis dataKey="y" />
+            <Tooltip />
+            <Legend />
+            <Line type="monotone" dataKey="pv" stroke="#8884d8" activeDot={{ r: 8 }} />
+        </LineChart>
+        {/* {isLoading ? <Loading /> : <div>{api.x}</div>} */}
     </div>
-    // <div id="curve_chart" style={{ width: '100%', height: '20%' }} />;
 };
 
 export default Run;
