@@ -10,12 +10,12 @@
 .dark h5,
 .dark h6 {
   /* from coinbase! */
-  color: #8A919E
+  /* color: #8A919E; */
 }
 
 .light {
   background-color: #ffffff;
-  color: #0A0B0D;
+  color: #000000;
 }
 
 .light h1,
@@ -25,5 +25,5 @@
 .light h5,
 .light h6 {
   /* from coinbase! */
-  color: #5B616E;
+  /* color: #343541; */
 }

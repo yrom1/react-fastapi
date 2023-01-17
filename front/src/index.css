@@ -24,7 +24,9 @@ body {
   max-width: 650px;
   line-height: 1.6;
   font-size: 18px;
-  padding: 0 10px
+  padding: 0 10px;
+  font-family: -apple-system, system-ui, BlinkMacSystemFont;
+  text-align: center;
 }
 
 h1,
