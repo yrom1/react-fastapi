@@ -6,10 +6,10 @@ import Footer from "./components/Footer"
 import Quote from "./components/Quote"
 import Theme from "./components/Theme"
 import Hi from "./components/Hi"
-
+import Run from "./components/Run"
 import './App.css';
 
-const components = [Hi, Theme, Quote];
+const components = [Hi, Theme, Quote, Run];
 // const components = [Hi, Theme, Dashboard, Projects, Footer, Quote];
 
 const App = () => {
