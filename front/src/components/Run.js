@@ -11,22 +11,23 @@ const Run = () => {
         async function fetchData() {
             const response = await fetch(endpoint)
             var j = await response.json();
-            var temp = j.x.map((x, index) => ({ x, y: j.y[index] }))
+            var temp = j.x.map((x, index) => ({ x, y: j.y[index], z: j.z[index] }))
 
             let newData = temp.map(item => {
                 return {
                     date: item.x,
-                    km: item.y
+                    km: item.y,
+                    cumsum: item.z
                 }
             });
-
+            console.log(newData)
             setData(newData)
             setIsLoading(false);
         }
         fetchData();
     }, []);
 
-    return <div>
+    return <div style={{ display: "flex", justifyContent: "center" }}>
         {isLoading ? <Loading /> :
             <div>
                 <body>
@@ -37,21 +38,23 @@ const Run = () => {
                         width={500}
                         height={250}
                         data={data}
-                        margin={{ top: 5, right: 20, left: 10, bottom: 5 }}
+                    // margin={{ top: 5, right: 20, left: 10, bottom: 5 }}
                     >
-                        <CartesianGrid strokeDasharray="3 3" />
+                        {/* <CartesianGrid strokeDasharray="3 3" /> */}
 
-                        <XAxis dataKey="date" />
-                        <YAxis />
+                        {/* <XAxis dataKey="date" /> */}
+                        {/* <YAxis /> */}
                         <Tooltip />
                         <Legend />
-                        <Line type="monotone" dataKey="km" activeDot={{ r: 2 }} strokeWidth={4} isAnimationActive={false} />
+                        <Line type="monotone" stroke="#8884d8" dataKey="km" activeDot={{ r: 1 }} strokeWidth={2} isAnimationActive={false} />
+                        <Line type="monotone" stroke="#82ca9d" dataKey="cumsum" activeDot={{ r: 1 }} strokeWidth={2} isAnimationActive={false} />
+
                     </LineChart>
                 </body>
             </div>
         }
 
-    </div>
+    </div >
 };
 
 export default Run;

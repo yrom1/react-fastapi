@@ -11,7 +11,6 @@ from fastapi.responses import PlainTextResponse
 from markdown_code_blocks import highlight
 from mysql.connector import connect
 from mysql.connector.connection import MySQLConnection
-
 from stardb import StarSchema
 
 _DEBUG = False
@@ -97,20 +96,25 @@ def format_data(data: List[Tuple[datetime.date, float]]):
 
 @app.get("/plots/{name}")
 async def plots(name: str):  # -> Dict[Tuple[datetime.date, float]]:
-    WHERE = "where ft.date >= DATE_SUB(CURRENT_DATE, INTERVAL 14 DAY)"
     if name == "strava_runs":
         with StarSchema() as rds:
             q = rds.query(
                 f"""
             select ft.date date
                 , ds.distance_km distance
+                , sum(ds.distance_km) over(order by date) total
             from fact_table ft
                 inner join dimension_strava ds
                     on ft.id_strava = ds.id
-            {WHERE}
+            where ft.date >= DATE_SUB(CURRENT_DATE, INTERVAL 14 DAY)
             """
             )
-        return format_data(q)
+        # return format_data(q)
+        return {
+            "x": [date for date, _, __ in q],
+            "y": [value for _, value, __ in q],
+            "z": [value for _, __, value in q],
+        }
     if name == "leetcode_questions":
         with StarSchema() as rds:
             q = rds.query(
@@ -120,7 +124,7 @@ async def plots(name: str):  # -> Dict[Tuple[datetime.date, float]]:
             from fact_table ft
                 inner join dimension_leetcode dl
                     on ft.id_leetcode = dl.id
-            {WHERE}
+            where ft.date >= DATE_SUB(CURRENT_DATE, INTERVAL 14 DAY)
             """
             )
         return format_data(q)
@@ -133,7 +137,7 @@ async def plots(name: str):  # -> Dict[Tuple[datetime.date, float]]:
             from fact_table ft
                 inner join dimension_leetcode dl
                     on ft.id_leetcode = dl.id
-            {WHERE}
+            where ft.date >= DATE_SUB(CURRENT_DATE, INTERVAL 14 DAY)
             """
             )
         return format_data(q)
