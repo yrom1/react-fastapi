@@ -20,7 +20,6 @@ const Run = () => {
                 }
             });
 
-            console.log(newData)
             setData(newData)
             setIsLoading(false);
         }
