@@ -11,6 +11,7 @@ from fastapi.responses import PlainTextResponse
 from markdown_code_blocks import highlight
 from mysql.connector import connect
 from mysql.connector.connection import MySQLConnection
+
 from stardb import StarSchema
 
 _DEBUG = False
@@ -77,12 +78,13 @@ async def projects(name: str):
     j = response.json()
     return {
         "name": j["name"],
-        "readme": highlight(
-            requests.get(
-                f"https://raw.githubusercontent.com/yrom1/{name}/main/README.md"
-            ).text
-        ),
-        "tagline": j["description"],
+        # "readme": highlight(
+        #     requests.get(
+        #         f"https://raw.githubusercontent.com/yrom1/{name}/main/README.md"
+        #     ).text
+        # ),
+        "description": j["description"],
+        "link": f"https://github.com/yrom1/{j['name']}",
     }
 
 
@@ -135,26 +137,3 @@ async def plots(name: str):  # -> Dict[Tuple[datetime.date, float]]:
             """
             )
         return format_data(q)
-
-
-# def projects():
-# ans = ""
-# for project in projects:
-#     ans += (
-#         f'<h3 style="text-align: left;"><a href="#{project}">'
-#         + project
-#         + "</a></h3>"
-#         + f'<p>{projects[project]["tagline"]}</p>'
-#     )
-# ans += "<hr>"
-# ans += "<hr>".join(
-#     [
-#         # a lil hacky to get hyperlinks to titles
-#         # depends on first line of every readme being a title which can replace
-#         f'<a href="#">⬆</a><h1 id="{project}">{project} — <a href="https://github.com/yrom1/{project}" target="_blank">source</a></h1>'
-#         + "\n".join(
-#             markdown_readme_to_html(projects[project]["readme"]).splitlines()[1:]
-#         )
-#         for project in projects
-#     ]
-# )
