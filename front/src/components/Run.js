@@ -32,7 +32,7 @@ const Run = () => {
             <div>
                 <body>
                     <h1>
-                        distance ran
+                        Distance Ran
                     </h1>
                     <LineChart
                         width={500}

@@ -25,7 +25,7 @@ function Quote() {
                 <div>
                     <body>
                         <h1>
-                            quote
+                            Quote
                         </h1>
                         <p>
                             {quote.quote}
