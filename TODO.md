@@ -5,9 +5,7 @@
   - [ ] prettier CSS
     - [ ] dont use body divs react doesnt like it
 - [ ] fix plots
-  - [ ] plotly bar line chart axis titles
-  - [ ] make plots use .css variable color so it gets all the theme stuff
-  - [ ] does using generic components make sense? maybe each plot should be individual component (code reuse for plots makes things usually)
+- [ ] https://letsencrypt.org/getting-started/
 - [x] deploy. deploy not using python anywhere it's annoying can aws do this?
   - [ ] make all the http https redirect work
   - [x] make the no www to www redirect work
