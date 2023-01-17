@@ -19,3 +19,5 @@ cd front
 npm install
 nohup npm start &
 cd ..
+# npm install -g serve
+# serve -s build
