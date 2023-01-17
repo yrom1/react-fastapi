@@ -11,34 +11,47 @@ const Run = () => {
         async function fetchData() {
             const response = await fetch(endpoint)
             var j = await response.json();
-            var data = []
-            for (let i = 0; i < j.x.length; i++) {
-                console.log(j.x[i], j.y[i]);
-                data.push([{ x: j.x[i], y: j.y[i] }])
-            }
-            data = j.x.map((x, index) => ({ x, y: j.y[index] }))
-            console.log(42, data)
-            // console.log(data)
-            setData(data)
+            var temp = j.x.map((x, index) => ({ x, y: j.y[index] }))
+
+            let newData = temp.map(item => {
+                return {
+                    date: item.x,
+                    km: item.y
+                }
+            });
+
+            console.log(newData)
+            setData(newData)
             setIsLoading(false);
         }
         fetchData();
     }, []);
 
     return <div>
-        <LineChart
-            width={400}
-            height={400}
-            data={data}
-            margin={{ top: 5, right: 20, left: 10, bottom: 5 }}
-        >
-            <XAxis dataKey="x" />
-            <YAxis dataKey="y" />
-            <Tooltip />
-            <Legend />
-            <Line type="monotone" dataKey="y" stroke="#8884d8" activeDot={{ r: 8 }} />
-        </LineChart>
-        {/* {isLoading ? <Loading /> : <div>{api.x}</div>} */}
+        {isLoading ? <Loading /> :
+            <div>
+                <body>
+                    <h1>
+                        distance ran
+                    </h1>
+                    <LineChart
+                        width={500}
+                        height={250}
+                        data={data}
+                        margin={{ top: 5, right: 20, left: 10, bottom: 5 }}
+                    >
+                        <CartesianGrid strokeDasharray="3 3" />
+
+                        <XAxis dataKey="date" />
+                        <YAxis />
+                        <Tooltip />
+                        <Legend />
+                        <Line type="monotone" dataKey="km" activeDot={{ r: 2 }} strokeWidth={4} isAnimationActive={false} />
+                    </LineChart>
+                </body>
+            </div>
+        }
+
     </div>
 };
 
