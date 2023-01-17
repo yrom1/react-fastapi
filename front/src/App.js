@@ -10,22 +10,19 @@ import Run from "./components/Run"
 import './App.css';
 
 const components = [Hi, Theme, Quote, Run];
-// const components = [Hi, Theme, Dashboard, Projects, Footer, Quote];
 
 const App = () => {
   return (
     <div className='App'>
-      {/* TODO what's an attractive way to arrange these? */}
       <div>
-        <>
-          {components.map(Component => (
+        {
+          components.map((component, index) => (
             <>
-              <hr />
-              <Component />
-              <hr />
+              {component()}
+              {index !== components.length - 1 && <hr />}
             </>
-          ))}
-        </>
+          ))
+        }
       </div>
     </div>
   );
