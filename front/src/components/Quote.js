@@ -10,12 +10,7 @@ function Quote() {
 
     useEffect(() => {
         async function fetchData() {
-            const response = await fetch(endpoint, {
-                headers: {
-                    'Access-Control-Allow-Origin': '*',
-                    'Access-Control-Allow-Credentials': true
-                }
-            })
+            const response = await fetch(endpoint)
             const json = await response.json();
             const data = json;
             setData(data)
