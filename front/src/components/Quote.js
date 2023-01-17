@@ -6,10 +6,11 @@ import './Quote.css'
 function Quote() {
     const [isLoading, setIsLoading] = useState(true);
     const [quote, setData] = useState(null);
+    const endpoint = (process.env.NODE_ENV == 'production' ? 'http://rymo.xyz:8000' : 'http://localhost:8000') + '/quote'
 
     useEffect(() => {
         async function fetchData() {
-            const response = await fetch('http://rymo.xyz:8000/quote', {
+            const response = await fetch(endpoint, {
                 headers: {
                     'Access-Control-Allow-Origin': '*',
                     'Access-Control-Allow-Credentials': true
