@@ -36,7 +36,7 @@ const Run = () => {
             <YAxis dataKey="y" />
             <Tooltip />
             <Legend />
-            <Line type="monotone" dataKey="pv" stroke="#8884d8" activeDot={{ r: 8 }} />
+            <Line type="monotone" dataKey="y" stroke="#8884d8" activeDot={{ r: 8 }} />
         </LineChart>
         {/* {isLoading ? <Loading /> : <div>{api.x}</div>} */}
     </div>
