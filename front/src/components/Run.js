@@ -35,10 +35,10 @@ const Run = () => {
                 </h1>
 
                 <ResponsiveContainer aspect={2} >
-                    <LineChart data={data} style={{ display: "flex", justifyContent: "center", width: "100%", height: "100%" }} margin={{ right: 30, top: 10, left: 10, bottom: 10 }}>
+                    <LineChart data={data} style={{ display: "flex", justifyContent: "center", width: "100%", height: "100%" }} margin={{ right: 90, top: 10, left: 10, bottom: 10 }}>
 
-                        {/* <XAxis dataKey="date" /> */}
-                        {/* <YAxis /> */}
+                        <XAxis dataKey="date" />
+                        <YAxis />
                         <Tooltip />
                         <Legend />
                         <Line type="monotone" stroke="#8884d8" dataKey="km" activeDot={{ r: 1 }} strokeWidth={2} isAnimationActive={false} />
