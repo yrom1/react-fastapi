@@ -18,6 +18,12 @@ header {
   justify-content: space-between;
 }
 
+
+html {
+  height: 100%;
+  /* overflow: hidden; */
+}
+
 header,
 body {
   margin: 40px auto;
@@ -35,5 +41,6 @@ h3,
 h4,
 h5,
 h6 {
-  line-height: 1.2
+  line-height: 1.2;
+  font-size: 1.2em;
 }

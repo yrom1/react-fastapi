@@ -13,7 +13,7 @@ const components = [Hi, Theme, Quote, Run];
 
 const App = () => {
   return (
-    <div className='App'>
+    <div className='App' style={{ height: '100%' }}>
       <div>
         {
           components.map((component, index) => (

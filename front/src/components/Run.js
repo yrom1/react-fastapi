@@ -27,20 +27,15 @@ const Run = () => {
         fetchData();
     }, []);
 
-    return <div style={{ display: "flex", justifyContent: "center" }}>
+    return <div >
         {isLoading ? <Loading /> :
-            <div>
-                <body>
-                    <h1>
-                        Distance Ran
-                    </h1>
-                    <LineChart
-                        width={500}
-                        height={250}
-                        data={data}
-                    // margin={{ top: 5, right: 20, left: 10, bottom: 5 }}
-                    >
-                        {/* <CartesianGrid strokeDasharray="3 3" /> */}
+            <body style={{ justifyContent: "center", width: "100%" }}>
+                <h1>
+                    Distance Ran
+                </h1>
+
+                <ResponsiveContainer aspect={2} >
+                    <LineChart data={data} style={{ display: "flex", justifyContent: "center", width: "100%", height: "100%" }} margin={{ right: 30, top: 10, left: 10, bottom: 10 }}>
 
                         {/* <XAxis dataKey="date" /> */}
                         {/* <YAxis /> */}
@@ -50,11 +45,12 @@ const Run = () => {
                         <Line type="monotone" stroke="#82ca9d" dataKey="cumsum" activeDot={{ r: 1 }} strokeWidth={2} isAnimationActive={false} />
 
                     </LineChart>
-                </body>
-            </div>
+                </ResponsiveContainer>
+
+            </body>
         }
 
     </div >
 };
-
+//  margin={{ top: 5, right: 20, left: 10, bottom: 5 }}
 export default Run;
