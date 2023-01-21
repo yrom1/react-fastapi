@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
+import DualComponent from "./components/DualComponent"
 import Dashboard from "./components/Dashboard"
 import Projects from "./components/Projects"
 import Footer from "./components/Footer"
@@ -23,6 +24,7 @@ const App = () => {
             </>
           ))
         }
+        <DualComponent component1={<Quote />} component2={<Quote />} />
       </div>
     </div>
   );
