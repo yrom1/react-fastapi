@@ -31,7 +31,7 @@ function Theme() {
                 <h1>
                     Theme
                 </h1>
-                The operating system's theme is: {theme}
+                System's theme is: {theme}
             </body>
         </div>
     );
