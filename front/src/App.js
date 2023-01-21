@@ -9,7 +9,7 @@ import Hi from "./components/Hi"
 import Run from "./components/Run"
 import './App.css';
 
-const components = [Hi, Theme, Quote, Run];
+const components = [Hi, Run, Footer, Theme];
 
 const App = () => {
   return (

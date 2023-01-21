@@ -31,7 +31,7 @@ const Run = () => {
         {isLoading ? <Loading /> :
             <body style={{ justifyContent: "center", width: "100%" }}>
                 <h1>
-                    Distance Ran
+                    Runs Past 2 Weeks
                 </h1>
 
                 <ResponsiveContainer aspect={2} >

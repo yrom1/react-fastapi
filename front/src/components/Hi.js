@@ -7,7 +7,10 @@ function Hi() {
                 <h1>
                     Ryan Moore
                 </h1>
-                I live in Toronto. And I like data
+                <p>me@rymo.xyz · <a href="https://github.com/yrom1">github.com/yrom1</a> · Toronto</p>
+                <p>
+                    I work at Sun Life on SQL Server databases
+                </p>
             </body>
         </div>
     );
