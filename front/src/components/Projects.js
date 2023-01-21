@@ -24,24 +24,39 @@ const Projects = () => {
     }, []);
 
     return (
+
         <div>
-            {isLoading ? (
-                <div><Loading /></div>
-            ) : (
-                projects.map(project => (
-                    <Tagline key={project.name} {...project} />
-                ))
-            )}
-            <hr></hr>
-            {isLoading ? (
-                <div><Loading /></div>
-            ) : (
-                projects.map(project => (
-                    <Project key={project.name} {...project} />
-                ))
-            )}
+            <body>
+                <h1 style={{ textAlign: "left" }}>
+                    Projects
+                </h1>
+                <ul>
+                    {isLoading ? (
+                        <div><Loading /></div>
+                    ) : (
+                        projects.map(project => (
+                            <div style={{ textAlign: "left" }}>
+                                <li><a href={project.link}>{project.name}</a> · {project.description}</li>
+                            </div>
+                        ))
+                    )}
+                </ul>
+            </body>
         </div>
+
     );
 };
 
 export default Projects;
+
+// return (
+//     <div>
+//         {isLoading ? (
+//             <div><Loading /></div>
+//         ) : (
+//             projects.map(project => (
+//                 <p><a href="{project.link}">{project.name}</a> {project.description}</p>
+//             ))
+//         )}
+//     </div>
+// );

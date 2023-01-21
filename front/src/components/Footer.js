@@ -5,11 +5,11 @@ function Footer() {
     return (
         <div>
             <body>
-                <h1>
+                <h1 style={{ textAlign: "left" }}>
                     Source Code
                 </h1>
-                <footer className="center-text">
-                    <p><a href="https://github.com/yrom1/react-fastapi">site</a> · <a href="https://github.com/yrom1/strava-rest">data</a> · <a href="https://github.com/yrom1/star-schema">base</a></p>
+                <footer style={{ textAlign: "left" }}>
+                    <p><a href="https://github.com/yrom1/react-fastapi">Site</a> · <a href="https://github.com/yrom1/strava-rest">Data</a> · <a href="https://github.com/yrom1/star-schema">Base</a></p>
                 </footer >
             </body>
         </div>

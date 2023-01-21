@@ -30,7 +30,7 @@ const Run = () => {
     return <div >
         {isLoading ? <Loading /> :
             <body style={{ justifyContent: "center", width: "100%" }}>
-                <h1>
+                <h1 style={{ textAlign: "left" }}>
                     Runs Past 2 Weeks
                 </h1>
 
