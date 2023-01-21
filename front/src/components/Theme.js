@@ -28,9 +28,6 @@ function Theme() {
     return (
         <div>
             <body>
-                <h1>
-                    Theme
-                </h1>
                 System's theme is: {theme}
             </body>
         </div>

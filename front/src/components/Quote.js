@@ -24,9 +24,6 @@ function Quote() {
             {isLoading ? <Loading /> :
                 <div>
                     <body>
-                        <h1>
-                            Quote
-                        </h1>
                         <p>
                             {quote.quote}
                         </p>

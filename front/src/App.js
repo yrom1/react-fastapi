@@ -7,10 +7,11 @@ import Footer from "./components/Footer"
 import Quote from "./components/Quote"
 import Theme from "./components/Theme"
 import Hi from "./components/Hi"
+import FunBar from "./components/FunBar"
 import Run from "./components/Run"
 import './App.css';
 
-const components = [Hi, Run, Footer, Theme];
+const components = [Hi, Run, Footer, FunBar];
 
 const App = () => {
   return (
@@ -24,7 +25,6 @@ const App = () => {
             </>
           ))
         }
-        <DualComponent component1={<Quote />} component2={<Quote />} />
       </div>
     </div>
   );
