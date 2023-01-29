@@ -4,9 +4,6 @@ import Tagline from './Tagline';
 import Loading from './Loading';
 
 const Projects = () => {
-    useEffect(() => {
-        document.title = "Ryan | Projects";
-    }, []);
     const [projects, setProjects] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
     const names = ['cloud-dictionary', 'mypandas', 'ty-command', 'exception-logging', 'postgrespy'];
