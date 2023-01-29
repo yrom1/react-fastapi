@@ -14,6 +14,10 @@ import './App.css';
 const components = [Hi, Run, Footer, FunBar];
 
 const App = () => {
+  useEffect(() => {
+    // Update the document title using the browser API
+    document.title = "Ryan's Site";
+  });
   return (
     <div className='App' style={{ height: '100%' }}>
       <div>
