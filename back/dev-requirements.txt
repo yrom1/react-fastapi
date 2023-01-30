@@ -3,3 +3,4 @@ uvicorn
 requests
 markdown_code_blocks
 mysql-connector-python
+aiohttp

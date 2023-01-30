@@ -4,6 +4,7 @@ from random import choice, random
 from subprocess import run
 from typing import *  # type: ignore
 
+import aiohttp
 import requests
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
@@ -32,7 +33,7 @@ def root():
 
 
 @app.get("/quote")  # , response_class=PlainTextResponse)
-def quote():
+async def quote():
     class RandomQuote:
         def __init__(self):
             self._quotes = [
@@ -73,8 +74,9 @@ async def projects(name: str):
     token = environ["GH_TOKEN"]
     headers = {"Authorization": "Bearer " + token}
     url = f"https://api.github.com/repos/yrom1/{name}"
-    response = requests.get(url, headers=headers)
-    j = response.json()
+    async with aiohttp.ClientSession() as session:
+        async with session.get(url) as response:
+            j = await response.json()
     return {
         "name": j["name"],
         # "readme": highlight(
