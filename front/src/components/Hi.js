@@ -7,9 +7,9 @@ function Hi() {
                 <h1>
                     Ryan Moore
                 </h1>
-                <p><a href="mailto:me@rymo.xyz">me@rymo.xyz</a> · <a href="https://github.com/yrom1">github.com/yrom1</a> · Toronto</p>
+                <p>ryanm.inbox@gmail.com · <a href="https://github.com/yrom1">github.com/yrom1</a> · Toronto</p>
             </body>
-        </div>
+        </div >
     );
 }
 
