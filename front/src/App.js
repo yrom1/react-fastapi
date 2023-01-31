@@ -9,11 +9,12 @@ import Experience from "./components/Resume"
 import Quote from "./components/Quote"
 import Theme from "./components/Theme"
 import Hi from "./components/Hi"
+import Expert from "./components/Expert"
 import FunBar from "./components/FunBar"
 import Run from "./components/Run"
 import './App.css';
 
-const components = [Hi, Run, Experience, Projects, FunBar, Education, Footer];
+const components = [Hi, Run, Experience, FunBar, Projects, Footer, Education, Expert];
 
 const App = () => {
   useEffect(() => {
@@ -22,6 +23,7 @@ const App = () => {
   });
   return (
     <div className='App' style={{ height: '100%' }}>
+
       <div>
         {
           components.map((component, index) => (
