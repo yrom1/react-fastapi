@@ -80,7 +80,7 @@ async def projects(name: str):
     headers = {"Authorization": "Bearer " + token}
     url = f"https://api.github.com/repos/yrom1/{name}"
     async with aiohttp.ClientSession() as session:
-        async with session.get(url) as response:
+        async with session.get(url, headers=headers) as response:
             j = await response.json()
     return {
         "name": j["name"],
