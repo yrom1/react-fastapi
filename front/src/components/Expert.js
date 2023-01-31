@@ -1,6 +1,14 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 
 function Hi() {
+    useEffect(() => {
+        const script = document.createElement('script')
+        script.src = 'https://platform.twitter.com/widgets.js'
+        script.async = true
+        script.charset = 'utf-8'
+        document.body.appendChild(script)
+    }, [])
+
     return (
         <div>
             <body>
@@ -12,7 +20,6 @@ function Hi() {
                     Andrej Karpathy (@karpathy) <a
                         href="https://twitter.com/karpathy/status/1325154823856033793?ref_src=twsrc%5Etfw">November 7, 2020</a>
                 </blockquote>
-                <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
             </body>
         </div >
@@ -20,4 +27,3 @@ function Hi() {
 }
 
 export default Hi
-
