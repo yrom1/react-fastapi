@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Loading from './Loading';
-import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
+import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, ComposedChart, Bar } from 'recharts';
 
 const Run = () => {
     const [isLoading, setIsLoading] = useState(true);
@@ -35,16 +35,16 @@ const Run = () => {
                 </h1>
 
                 <ResponsiveContainer aspect={2} >
-                    <LineChart data={data} style={{ display: "flex", justifyContent: "center", width: "100%", height: "100%" }} margin={{ right: 90, top: 10, left: 10, bottom: 10 }}>
+                    <ComposedChart data={data} style={{ display: "flex", justifyContent: "center", width: "100%", height: "100%" }} margin={{ right: 90, top: 10, left: 10, bottom: 10 }}>
 
                         <XAxis dataKey="date" />
                         <YAxis />
                         <Tooltip />
                         <Legend />
-                        <Line type="monotone" stroke="#8884d8" dataKey="km" activeDot={{ r: 1 }} strokeWidth={2} isAnimationActive={false} />
+                        <Bar type="monotone" stroke="#8884d8" fill="#8884d8" dataKey="km" activeDot={{ r: 1 }} strokeWidth={2} isAnimationActive={false} />
                         <Line type="monotone" stroke="#82ca9d" dataKey="cumsum" activeDot={{ r: 1 }} strokeWidth={2} isAnimationActive={false} />
 
-                    </LineChart>
+                    </ComposedChart>
                 </ResponsiveContainer>
 
             </body>
