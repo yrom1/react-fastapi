@@ -13,7 +13,7 @@ import FunBar from "./components/FunBar"
 import Run from "./components/Run"
 import './App.css';
 
-const components = [Hi, Experience, Run, Projects, FunBar, Education, Footer];
+const components = [Hi, Run, Experience, Projects, FunBar, Education, Footer];
 
 const App = () => {
   useEffect(() => {
