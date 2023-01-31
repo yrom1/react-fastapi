@@ -9,6 +9,7 @@
 - [x] deploy. deploy not using python anywhere it's annoying can aws do this?
   - [ ] make all the http https redirect work
   - [x] make the no www to www redirect work
+- [ ] react loads the quote api twice?????????
 - [x] make quote api return json of parts rather than string
 - [x] light and dark themes
   - [x] page based on system theme
