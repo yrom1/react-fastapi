@@ -48,6 +48,11 @@ async def quote():
                     "Nate Silver",
                     "The Signal and the Noise",
                 ),
+                (
+                    "So I just think you should just focus on working. What have you done— what have you done in the last week? *laughter*",
+                    "Andrej Karpathy",
+                    "Lex Fridman Podcast",
+                ),
             ]
             for quote in self._quotes:
                 assert len(quote) == 3
