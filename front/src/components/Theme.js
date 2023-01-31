@@ -28,9 +28,9 @@ function Theme() {
     return (
         <div>
             <body>
-                System's theme is: {theme}
+                System's theme is: {theme} <a href="https://bugs.chromium.org/p/chromium/issues/detail?id=998903">[🐧]</a>
             </body>
-        </div>
+        </div >
     );
 
 }
