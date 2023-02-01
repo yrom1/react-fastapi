@@ -32,8 +32,8 @@ const Click = () => {
 
     return (
         <div>
-            This <button onClick={handleClick}>⠀⠀⠀</button> has been clicked {loading ? <Loading /> : clicks} times
-        </div>
+            This <button style={{ width: '3em', height: '1.5em' }} onClick={handleClick} ></button> has been clicked {loading ? <Loading /> : clicks} times
+        </div >
     );
 };
 
