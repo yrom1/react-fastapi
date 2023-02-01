@@ -12,9 +12,10 @@ import Hi from "./components/Hi"
 import Expert from "./components/Expert"
 import FunBar from "./components/FunBar"
 import Run from "./components/Run"
+import Click from "./components/Click"
 import './App.css';
 
-const components = [Hi, Run, Experience, FunBar, Projects, Footer, Education, Expert];
+const components = [Hi, Run, Experience, FunBar, Projects, Footer, Education, Expert, Click];
 
 const App = () => {
   useEffect(() => {

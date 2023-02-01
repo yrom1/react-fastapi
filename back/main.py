@@ -6,6 +6,7 @@ from typing import *  # type: ignore
 
 import aiohttp
 import requests
+from cloud_dictionary import Cloud
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import PlainTextResponse
@@ -30,6 +31,21 @@ app.add_middleware(
 @app.get("/")
 def root():
     return {"Hello": "World"}
+
+
+CLICKS = Cloud("kpiV1")
+
+
+@app.get("/clicks")
+async def get_clicks():
+    return {"clicks": CLICKS["clicks"]}
+
+
+@app.put("/clicks")
+async def increment_clicks():
+    global CLICKS
+    CLICKS["clicks"] += 1
+    return {"message": "Click incremented"}
 
 
 @app.get("/quote")  # , response_class=PlainTextResponse)
