@@ -1,3 +1,5 @@
+# usage: sh run.sh [dev|build]
+
 # SETUP
 git submodule update --init --recursive
 rm -rf $(pwd)/back/stardb.py
@@ -15,9 +17,15 @@ nohup python3 -m uvicorn main:app --host 0.0.0.0 --port 8000 --reload &
 cd ..
 
 # FRONTEND
+rm -rf ./front/build/
 cd front
 npm install
-nohup npm start &
+if [ "$1" = "dev" ]; then
+    nohup npm start &
+else
+    npm run build
+    nohup serve -s build &
+fi
 cd ..
 # npm install -g serve
 # serve -s build
