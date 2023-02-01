@@ -21,10 +21,9 @@ const Loading = () => {
     }, [currentChar]);
 
     return (
-        <div className='center-text'>
-            {/* Display the current loading character */}
-            <span>{loadingChars[currentChar]}</span>
-        </div>
+        <>
+            < span > {loadingChars[currentChar]}</span >
+        </>
     );
 };
 
