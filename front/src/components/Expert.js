@@ -1,6 +1,8 @@
 import React, { useEffect } from 'react'
 
 function Hi() {
+    const theme = localStorage.getItem('theme');
+
     useEffect(() => {
         const script = document.createElement('script')
         script.src = 'https://platform.twitter.com/widgets.js'
@@ -11,7 +13,7 @@ function Hi() {
 
     return (
         <div style={{ display: 'flex', justifyContent: 'center' }}>
-            <blockquote class="twitter-tweet">
+            <blockquote class="twitter-tweet" data-theme={theme === 'dark' ? 'dark' : undefined}>
                 <p lang="en" dir="ltr">How to become expert at thing:<br></br>1 iteratively take on concrete projects and accomplish
                     them depth wise, learning “on demand” (ie don’t learn bottom up breadth wise)<br></br>2 teach/summarize
                     everything you learn in your own words<br></br>3 only compare yourself to younger you, never to others</p>&mdash;
