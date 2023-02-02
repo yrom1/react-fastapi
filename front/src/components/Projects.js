@@ -4,13 +4,14 @@ import Tagline from './Tagline';
 import Loading from './Loading';
 
 const Projects = () => {
+    const endpoint = (process.env.NODE_ENV == 'production' ? 'http://rymo.xyz:8000' : 'http://localhost:8000') + '/projects/'
     const [projects, setProjects] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
     const names = ['cloud-dictionary', 'mypandas', 'ty-command', 'exception-logging', 'postgrespy'];
     useEffect(() => {
         const fetchProjects = async () => {
             const promises = names.map(name =>
-                fetch(`http://localhost:8000/projects/${name}`)
+                fetch(endpoint + `${name}`)
                     .then(response => response.json())
             );
             const projectData = await Promise.all(promises);
