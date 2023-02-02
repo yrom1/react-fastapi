@@ -1,0 +1,26 @@
+server {
+listen [::]:443 ssl ipv6only=on;
+listen 443 ssl;
+server_name rymo.xyz;
+ssl_certificate /etc/letsencrypt/live/rymo.xyz/fullchain.pem;
+ssl_certificate_key /etc/letsencrypt/live/rymo.xyz/privkey.pem;
+include /etc/letsencrypt/options-ssl-nginx.conf;
+ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem;
+access_log /var/log/nginx/rymo.xyz.access.log;
+error_log /var/log/nginx/rymo.xyz.error.log;
+location / {
+proxy_pass http://localhost:3000;
+}
+location /quote {
+proxy_pass http://localhost:8000/quote;
+}
+location /projects/ {
+proxy_pass http://localhost:8000/projects/;
+}
+location /clicks {
+proxy_pass http://localhost:8000/clicks;
+}
+location /plots/strava_runs {
+proxy_pass http://localhost:8000/plots/strava_runs;
+}
+}
