@@ -4,7 +4,7 @@ import Tagline from './Tagline';
 import Loading from './Loading';
 
 const Projects = () => {
-    const endpoint = (process.env.NODE_ENV == 'production' ? 'http://rymo.xyz:8000' : 'http://localhost:8000') + '/projects/'
+    const endpoint = (process.env.NODE_ENV == 'production' ? 'https://rymo.xyz:8000' : 'http://localhost:8000') + '/projects/'
     const [projects, setProjects] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
     const names = ['cloud-dictionary', 'mypandas', 'ty-command', 'exception-logging', 'postgrespy'];
