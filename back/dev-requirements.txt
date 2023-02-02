@@ -1,3 +1,4 @@
+cloud_dictionary
 fastapi
 uvicorn
 requests
