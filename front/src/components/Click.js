@@ -4,7 +4,7 @@ import Loading from './Loading';
 const Click = () => {
     const [clicks, setClicks] = useState(0);
     const [loading, setLoading] = useState(false);
-    const endpoint = (process.env.NODE_ENV == 'production' ? 'http://rymo.xyz' : 'http://localhost') + ':8000/clicks'
+    const endpoint = (process.env.NODE_ENV == 'production' ? 'http://rymo.xyz' : 'http://localhost') + '/clicks'
 
     useEffect(() => {
         const fetchData = async () => {
