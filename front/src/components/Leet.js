@@ -8,7 +8,7 @@ const Leet = () => {
     const [min, setMin] = useState(null);
     const [max, setMax] = useState(null);
 
-    const endpoint = (process.env.NODE_ENV == 'production' ? 'http://rymo.xyz:8000' : 'http://localhost:8000') + '/plots/leetcode_questions'
+    const endpoint = (process.env.NODE_ENV == 'production' ? 'https://rymo.xyz:8000' : 'http://localhost:8000') + '/plots/leetcode_questions'
 
     useEffect(() => {
         async function fetchData() {
