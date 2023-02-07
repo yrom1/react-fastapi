@@ -1,7 +1,7 @@
 server {
 listen [::]:443 ssl ipv6only=on;
 listen 443 ssl;
-server_name rymo.xyz;
+server_name rymo.xyz www.rymo.xyz;
 ssl_certificate /etc/letsencrypt/live/rymo.xyz/fullchain.pem;
 ssl_certificate_key /etc/letsencrypt/live/rymo.xyz/privkey.pem;
 include /etc/letsencrypt/options-ssl-nginx.conf;
