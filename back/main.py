@@ -55,13 +55,18 @@ async def quote():
             self._quotes = [
                 # (quote, author, book)
                 (
-                    "So I just think you should just focus on working. What have you done— what have you done in the last week?",
-                    "Andrej Karpathy",
-                    "Lex Fridman Podcast",
+                    "With computers available, it is a waste to perform calculations by hand.",
+                    "Taiichi Ohno",
+                    "Toyota Production System Beyond Large-Scale Production",
                 ),
                 (
-                    "Action produces information. So just, just like, keep doing stuff.",
-                    "Brian Armstrong",
+                    "The numbers have no way of speaking for themselves. We speak for them. We imbue them with meaning.",
+                    "Nate Silver",
+                    "The Signal and the Noise",
+                ),
+                (
+                    "So I just think you should just focus on working. What have you done— what have you done in the last week? *laughter*",
+                    "Andrej Karpathy",
                     "Lex Fridman Podcast",
                 ),
             ]
