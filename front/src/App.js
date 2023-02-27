@@ -15,7 +15,7 @@ import Run from "./components/Run"
 import Click from "./components/Click"
 import './App.css';
 
-const components = [Hi, Run, Experience, FunBar, Projects, Footer, Education, Expert, Click];
+const components = [Hi, Run, FunBar, Experience, Projects, Footer, Education, Expert, Click];
 
 const App = () => {
   useEffect(() => {

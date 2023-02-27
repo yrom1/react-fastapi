@@ -1,1 +1,1 @@
-/home/ryan/react-fastapi/star-schema/stardb.py
+/Users/ryan/react-fastapi/star-schema/stardb.py
