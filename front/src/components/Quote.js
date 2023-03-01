@@ -6,7 +6,7 @@ import './Quote.css'
 function Quote() {
     const [isLoading, setIsLoading] = useState(true);
     const [quote, setData] = useState(null);
-    const endpoint = (process.env.NODE_ENV == 'production' ? 'https://rymo.xyz' : 'http://localhost') + '/quote'
+    const endpoint = (process.env.NODE_ENV == 'production' ? 'https://rymo.xyz' : 'http://localhost:8000') + '/quote'
 
     useEffect(() => {
         async function fetchData() {
