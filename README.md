@@ -59,3 +59,7 @@ Behold, a plot. Recharts, https://recharts.org/en-US/examples. Pretty good, it a
 Nginx. So you should know that on ubuntu at least, there's a /etc/nginx/sites-enabled which holds symbolic links to a file in /etc/nginx/sites-available where you actual config file lies. Quickly looking online this seems like a weird Ubuntu artifact. You'll want to delete the default stuff, because for some reason it takes priority by default, if you look at nginx.conf you could probably figure it out but I didn't bother. I followed this a lot https://www.digitalocean.com/community/tutorials/how-to-secure-nginx-with-let-s-encrypt-on-ubuntu-22-04, certbot does all the dirty work of talking to let's encrypt to get your https pem and key files. You have to be careful with ssh, I had to `sudo ufw allow ssh; sudo ufw enable` see https://stackoverflow.com/questions/60411998/nginx-refuses-ssh-locked-outside to not get locked out, along with the other stuff that digital ocean site recommended. Also, curious if something is running? It's `service nginx status`. To check your nginx config `sudo nginx -t`, gogogo `sudo systemctl restart nginx`
 
 🥳
+
+## 2022-03-06
+
+![](dashboard.png)
